@@ -1,0 +1,21 @@
+<div class="loginWrapper">
+    <div class="loginForm">
+        <h1>Brain HiJack Login</h1>
+        <form ng-submit="login()">
+<!--            <p>name <input type="text" ng-model="user.name" name="name"></p>-->
+            <p>Username <input type="text" ng-model="user.username" name="username"></p>
+<!--            <p>age <input type="number" ng-model="user.age" name="age"></p>-->
+<!--
+            <label>Gender</label>
+            <select name="gender" ng-model="user.gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select>
+-->
+            <p>Password <input type="password" ng-model="user.password" name="password"></p>
+            <button type="submit">Login</button>
+        </form><br>     
+    </div>
+    <button ng-click="getAllUsers()">Get all users</button>
+</div>
+
