@@ -10,7 +10,7 @@ app.controller('loginController', function($scope, $location, loginFactory){
                 console.log(data);
                 if(data.data.success){
                     $location.url("/dashboard");
-                } else if (data.data.success){
+                } else if (!data.data.success){
                     return alert("wrong password")
                 }
 //                if(data.data.success){

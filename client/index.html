@@ -1,21 +1,109 @@
 <!doctype html>
 <html ng-app="app">
 <head>
-    <meta charset="UTF-8">
-    <title>Brain Template</title>
-    <script src="angular/angular.js"></script>
-    <script src="angular-route/angular-route.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
     <script src="app.js"></script>
     <script src="./controllers/loginController.js"></script>
     <script src="./factories/loginFactory.js"></script>
     <script src="./controllers/dashboardController.js"></script>
     <script src="./factories/dashboardFactory.js"></script>
+    <script src="./controllers/gameController.js"></script>
+    <script src="./factories/gameFactory.js"></script>
+    <script src="./controllers/profileController.js"></script>
+    <script src="./factories/profileFactory.js"></script>
+    <script src="./controllers/adminController.js"></script>
+    <script src="./factories/adminFactory.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/flipclock.min.js"></script>
+    <script src="./game.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/flipclock.css">
+    
+    <meta charset="UTF-8">
+    <title>Brain Template</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>BrainHiJack</title>
+
+  
+    <style>
+      h1{
+        font-size:20px;
+      }
+
+      .start_button_cont button{
+        font-size:24px;
+        padding:5px 20%;
+        margin-top:10px;
+      }
+
+      #stop_timer{
+        display:none;
+      }
+
+      .green_gly{
+        color:green;
+      }
+
+      .red_gly{
+        color:red;
+      }
+
+      #next_level{
+        font-size:24px;
+        padding:5px 20%;
+        display:none;
+      }
+
+      #brain{
+         background-image: url("brain.png");
+         background-repeat: no-repeat;
+         background-position: center center;
+         display: block;
+         background-size: 350px;
+         height:100%;
+
+      }
+
+      .brain_cortisol{
+        background-image: url("./pics/brain_cortisol.png");
+      }
+
+      .brain_dopamine{
+        background-image: url("brain_dopamine.png");
+      }
+
+      .brain_cont{
+        height: 350px;
+      }
+
+      .avatroid{
+        width:240px;
+      }
+
+      .clock_cont{
+        margin-top: 20px;
+      }
+
+      .level_clock{
+        margin: 20px 120px;
+      }
+        
+    </style>
+    
+    
 </head>
 <body>
-    <div ng-view></div>
+    <div ng-view class="ngview"></div>
 
 
 </body>

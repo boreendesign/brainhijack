@@ -1,0 +1,15 @@
+<button type="button" ng-click="getAllGames()">Get All Games</button><br>
+<input type="text" ng-model="gameid"><button type="button" ng-click="getAllGames(gameid)">Get Game</button><br>
+<button type="button" ng-click="getAllUserGames()">Get All User Games</button><br>
+<button type="button" ng-click="createGame()">Create Game</button><br>
+<button type="button" ng-click="getAllUsers()">Get All Users</button><br>
+
+<p>Role <input type="text" ng-model="role.roleName"><button type="button" ng-click="createRole(role)">create Role</button></p>
+<button type="button" ng-click="getAllRoles">Get All Roles</button><br>
+
+<h3>Sentence</h3>
+<p>Level <input type="number" ng-model="sentence.level"></p>
+<p>Text1 <input type="text" ng-model="sentence.text1"></p>
+<p>Text2 <input type="text" ng-model="sentence.text2"></p>
+<button type="button" ng-click="createSentence()">Create Sentence</button><br>
+<p>Level <input type="number" ng-model="randomSentence.level"> <button type="button" ng-click="getRandomSentence()">Get Random Sentence</button></p>

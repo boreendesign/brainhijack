@@ -1,0 +1,292 @@
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Brain Hijack
+                    </a>
+                </li>
+                <li>
+                    <a href="level1.html">Start a New Game</a>
+                </li>
+                <li>
+                    <a href="#">My Profile</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            Game ID:{{game._id}}
+            <div class="container-fluid">
+              <div class="row col-lg-12 text-center">
+                <h1>Lets start Brain Hijacking - Lets test your Multitasking Skills</h1>
+            </div>
+              <div class = "row col-lg-6">
+                <div class="row progress-bars">
+
+
+
+
+                    <div class="col-lg-12">
+
+                        <div class="row">
+                      <div class = 'col-lg-12'>
+                        <div class = 'col-lg-12 text-center'><h3>Whats going on in your brain</h3></div>
+                        <div class = 'col-lg-12 brain_bar'>
+                          <div class = "col-lg-12">
+                            Dopamine
+                            <div class="progress">
+                              <div class="progress-bar pro_dopamine progress-bar-striped active" role="progressbar"
+                              aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class = "col-lg-12">
+                            Cortisol
+                            <div class="progress">
+                              <div class="progress-bar pro_cortisol progress-bar-striped active" role="progressbar"
+                              aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class = 'col-lg-12 brain_bar'>
+
+                        </div>
+                      </div>
+
+                      <div class = 'col-lg-12 brain_cont'>
+                          <a id ='brain' class = 'brain_dopamine' href = '#'></a>
+                          <br/>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+
+
+              </div>
+              <div class = "row col-lg-6">
+                <div class="row level_design">
+                    <div class = 'level1'>
+                        <h3>Start by entering the text seen below</h3>
+                      <div class="row">
+                      <div class = "col-lg-12">
+                        <div class="input-group col-lg-12">
+                            <input type="text" class="form-control letter_text" disabled value = '{{sentence.text1}}'>
+<!--                            original string - Myelin really gets on my nerves-->
+                            <input type="text" class="form-control letter_input">
+                            <span class="input-group-addon input_status success"><span class="glyphicon glyphicon-ok"></span></span>
+                        </div><br/>
+                        <div class="input-group col-lg-12">
+                            <input type="text" class="form-control letter_text" disabled value = '{{sentence.text2}}'>
+                            <input type="text" class="form-control letter_input">
+                            <span class="input-group-addon input_status success"><span class="glyphicon glyphicon-ok"></span></span>
+                        </div>
+                      </div>
+
+
+                    </div>
+                    <div class="row col-lg-12 text-center clock_cont">
+                      <div class="levelclock"></div>
+                    </div>
+                    <div class="row start_button_cont text-center">
+
+                      <button class="btn btn-default btn-success" id = "start_timer" type="button">Go!</button>
+                      <button class="btn btn-default btn-danger" id = "stop_timer" type="button">Start Again!</button>
+                    </div>
+                    <br/><br/>
+
+
+
+
+
+                    <div class="row text-center">
+                      <button class="btn btn-default btn-success" id = "next_level" type="button" data-toggle="modal" data-target="#myModal">Next Level</button>
+                    </div>
+                    <div class = ''>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Congratulations You Have Leveled Up</h4>
+          </div>
+          <div class="modal-body">
+            <div class = 'row text-center'>
+              <h3>You have Just Recieved the Dopanana Avatroid</h3>
+              <img class = 'avatroid' src = 'banana.png' />
+              <div class = 'row'>
+                SUPER POWER - Has a chemical used to send signals between nerve cells in the brain.
+
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    var clock;
+
+    var level1;
+    //level1 =
+
+
+
+    $( document ).ready(function() {
+      $('body').find('.letter_input').prop('disabled', true);
+      /*clock = new FlipClock($('.your-clock'), {
+        clockFace: 'MinuteCounter'
+      }).reset();
+
+      $( "body" ).data( "clock", clock );
+      */
+      current_time = 0;
+        console.log(FlipClock);
+      clock = new FlipClock($('.levelclock'), 0, {
+          autoStart: false,
+					clockFace: 'MinuteCounter',
+		        callbacks: {
+		        	interval: function() {
+                var time = this.factory.getTime().time;
+		        		if(time && time > current_time) {
+                  //console.log(time + ' - ' +(time % 1));
+                  if (time % 1 == 0) {
+                    if(time == 6){
+                      setValueOfProgressBars();
+                    }
+                  }
+			        	}
+                current_time = time;
+
+
+		        	}
+		        }
+				});
+
+
+    $('#start_timer').click(function() {
+        clock.reset();
+        clock.start();
+        $('#stop_timer').show();
+        $('#start_timer').hide();
+        $('body').find('.letter_input').prop('disabled', false);
+      });
+
+      $('#stop_timer').click(function() {
+        clock.stop();
+        $('#start_timer').show();
+        $('#stop_timer').hide();
+      });
+
+      $('.letter_input').keyup(function(e){
+
+        $input = $(this).parent().find('.letter_input');
+        $text = $(this).parent().find('.letter_text');
+
+        //console.log(  $letter_text.val() + ' ' + $letter_input.val());
+        if($text.val().startsWith($input.val())){
+          $(this).parent().find('.input_status').removeClass('red_gly').removeClass('complete_gly').addClass('green_gly');
+        }else{
+          $(this).parent().find('.input_status').removeClass('green_gly').removeClass('complete_gly').addClass('red_gly');
+        }
+
+        if($text.val() == $input.val()){
+          $(this).parent().find('.input_status').addClass('complete_gly');
+        }
+        $allcomplete = false;
+        $container = $(this).parent().parent();
+        $container.find('.input_status').each(function( index ) {
+          if($(this).hasClass('complete_gly')){
+            $allcomplete = true;
+          }else{
+            $allcomplete = false;
+          }
+        });
+
+        if($allcomplete == true){
+          $('#next_level').show();
+            $container.find('.letter_input').prop('disabled', true);
+            clock.stop();
+            var time  = clock.getFaceValue();
+          }
+      });
+
+      function setValueOfProgressBars(){
+
+        decreaseDopamine();
+
+        //console.log('setting');
+        //
+      }
+
+      function increaseDopamine(){
+        $('.progress .pro_dopamine').css('width', 80+'%').attr('aria-valuenow', 80);
+        $('.progress .pro_cortisol').css('width', 10+'%').attr('aria-valuenow', 80);
+        $('#brain').css("background-image", "url(./pics/brain_dopamine.png)");
+      }
+
+      function decreaseDopamine(){
+        $('.progress .pro_dopamine').css('width', 30+'%').attr('aria-valuenow', 80);
+        $('.progress .pro_cortisol').css('width', 60+'%').attr('aria-valuenow', 80);
+        $('#brain').css("background-image", "url(./pics/brain_cortisol.png)");
+      }
+
+      function resetDopamine(){
+
+        $('.progress .pro_dopamine').css('width', 50+'%').attr('aria-valuenow', 80);
+        $('.progress .pro_cortisol').css('width', 20+'%').attr('aria-valuenow', 80);
+        $('#brain').css("background-image", "url(./pics/brain.png)");
+
+      }
+
+
+    });
+
+    </script>
+    <!-- ********************* END CUSTOM STEVE ********************* -->
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+
+

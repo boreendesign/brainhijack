@@ -5,11 +5,6 @@ app.factory('dashboardFactory', function($http){
             callback(data);
         })
     };
-    factory.createGame = function(callback){
-        $http.get('/createGame').then(function(data){
-            callback(data);
-        })
-    };
     factory.getGame = function(game, callback){
         $http.post('/getGame', game).then(function(data){
             callback(data);

@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '/bower_components')));
 
 //session
 app.use(session({
-  secret: 'brainHack',
+  secret: 'brainhijack',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }

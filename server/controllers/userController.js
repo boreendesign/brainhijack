@@ -22,7 +22,7 @@ module.exports = (function(){
                         if(err1){
                             return res.json({errors: err1});
                         } else {
-                            return res.json({user: user1})
+                            return res.json({message: "added new user", success: true, user: user1})
                         }
                     })
                 }

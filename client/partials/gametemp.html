@@ -1,0 +1,288 @@
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#/dashboard">
+                        Brain Hijack
+                    </a>
+                </li>
+                <li>
+                    <a href="#/game">Start a New Game</a>
+                </li>
+                <li>
+                    <a href="#/profile">My Profile</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row progress-bars">
+                    <div class="col-lg-12">
+                      <div  class="col-lg-12">
+                        
+                        Lets start Brain Hijacking - Lets test your Multitasking Skills
+                      </div>
+
+                      <div class = 'col-lg-12'>
+                        <div class = 'col-lg-12'>YOUR BRAIN IS FIRING</div>
+                        <div class = 'col-lg-6 brain_bar'>
+                          <div class = "col-lg-6">
+                            Left PFC
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-striped active" role="progressbar"
+                              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class = "col-lg-6">
+                            Right PFC
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-striped active" role="progressbar"
+                              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class = "col-lg-6">
+                            Left Amygdala
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-striped active" role="progressbar"
+                              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class = "col-lg-6">
+                            Right Amygdala
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-striped active" role="progressbar"
+                              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class = 'col-lg-6 brain_bar'>
+
+                        </div>
+                      </div>
+
+                      <div class = 'col-lg-12'>
+
+                      </div>
+
+                    </div>
+                </div>
+                <div class="row start_button_cont text-center">
+
+                  <button class="btn btn-default btn-success" id = "start_timer" type="button">Go!</button>
+                  <button class="btn btn-default btn-danger" id = "stop_timer" type="button">Start Again!</button>
+                </div>
+                <div class="row level_design">
+                    <div class = 'level1'>
+                        <h2>Lets Get Started</h2>
+                      <div class="row">
+                      <div class = "col-lg-8">
+                        <div class="input-group col-lg-12">
+                            <input type="text" class="form-control letter_text" disabled value = '{{sentence.text}}'>
+                            <input type="text" class="form-control letter_input">
+                            <span class="input-group-addon input_status success"><span class="glyphicon glyphicon-ok"></span></span>
+                        </div><br/>
+                        <div class="input-group col-lg-12">
+                            <input type="text" class="form-control letter_text" disabled value = '222'>
+                            <input type="text" class="form-control letter_input">
+                            <span class="input-group-addon input_status success"><span class="glyphicon glyphicon-ok"></span></span>
+                        </div>
+                      </div>
+                      <div class=" col-lg-4">
+                        <div class="levelclock"></div>
+                      </div>
+
+                    </div>
+                    <br/><br/>
+
+
+
+
+
+                    <div class="row text-center">
+                      <button class="btn btn-default btn-success" id = "next_level" type="button" data-toggle="modal" data-target="#myModal">Next Level</button>
+                    </div>
+                    <div class = ''>
+
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            Game #{{game._id}}
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- ********************* CUSTOM STEVE ********************* -->
+
+
+
+
+  		<script src="js/flipclock.min.js"></script>
+
+    <script>
+    var clock;
+    var timeInterval;
+    var timeStart;
+    var timeEnd;
+    var keyStart;
+    var keyEnd;
+    var keyInterval;
+    var level1;
+    //level1 =
+
+
+
+    $( document ).ready(function() {
+      $('body').find('.letter_input').prop('disabled', true);
+      /*clock = new FlipClock($('.your-clock'), {
+        clockFace: 'MinuteCounter'
+      }).reset();
+
+      $( "body" ).data( "clock", clock );
+      */
+      current_time = 0;
+      clock = new FlipClock($('.levelclock'), 0, {
+          autoStart: false,
+					clockFace: 'MinuteCounter',
+		        callbacks: {
+		        	interval: function() {
+                var time = this.factory.getTime().time;
+		        		if(time && time > current_time) {
+                  //console.log(time + ' - ' +(time % 1));
+                  if (time % 1 == 0) {
+                    setValueOfProgressBars();
+                  }
+			        	}
+                current_time = time;
+
+
+		        	}
+		        }
+				});
+
+
+    $('#start_timer').click(function() {
+        clock.reset();
+        clock.start();
+        timeStart = new Date();
+        $('#stop_timer').show();
+        $('#start_timer').hide();
+        $('body').find('.letter_input').prop('disabled', false);
+      });
+
+      $('#stop_timer').click(function() {
+        
+        clock.stop();
+        timeEnd = new Date();
+        timeInterval = timeEnd - timeStart;
+        console.log(timeInterval);
+        $('#start_timer').show();
+        $('#stop_timer').hide();
+      });
+
+      $('.letter_input').keyup(function(e){
+        if(keyStart == null){
+            keyStart = new Date();
+        };
+          keyEnd = new Date();
+          keyInterval = keyEnd - keyStart;
+          console.log(keyInterval);
+          keyStart = new Date();
+        $input = $(this).parent().find('.letter_input');
+//        $text = $(this).parent().find('.letter_text');
+          var ae = angular.element('#ngview').scope();
+          $text = ae.sentence.text;
+
+        //console.log(  $letter_text.val() + ' ' + $letter_input.val());
+        if($text.val().startsWith($input.val())){
+          $(this).parent().find('.input_status').removeClass('red_gly').removeClass('complete_gly').addClass('green_gly');
+        }else{
+          $(this).parent().find('.input_status').removeClass('green_gly').removeClass('complete_gly').addClass('red_gly');
+        }
+
+        if($text.val() == $input.val()){
+          $(this).parent().find('.input_status').addClass('complete_gly');
+        }
+        $allcomplete = false;
+        $container = $(this).parent().parent();
+        $container.find('.input_status').each(function( index ) {
+          if($(this).hasClass('complete_gly')){
+            $allcomplete = true;
+          }else{
+            $allcomplete = false;
+          }
+        });
+
+        if($allcomplete == true){
+          $('#next_level').show();
+            $container.find('.letter_input').prop('disabled', true);
+            clock.stop();
+            var time  = clock.getFaceValue();
+          }
+      });
+
+      function setValueOfProgressBars(){
+        console.log('setting');
+//          $('.progress-bar').css('width', valeur+'%').attr('aria-valuenow', valeur);
+      }
+
+
+    });
+
+    </script>
+    <!-- ********************* END CUSTOM STEVE ********************* -->
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>

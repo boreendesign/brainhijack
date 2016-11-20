@@ -20,11 +20,6 @@ app.controller('dashboardController', function($scope, $location, dashboardFacto
             console.log(data);
         })
     };
-    $scope.createGame = function(){
-        dashboardFactory.createGame(function(data){
-            console.log(data);
-        })
-    };
     $scope.getGame = function(gameId){
         var game = {
             _id: gameId

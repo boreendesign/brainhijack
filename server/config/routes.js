@@ -25,4 +25,16 @@ module.exports = function(app){
     app.post('/getGame', function(req,res){
         gameController.getGame(req,res);
     });
+    app.get('/getAllRoles', function(req,res){
+        gameController.getAllRoles(req,res);
+    });
+    app.post('/createRole', function(req,res){
+        gameController.createRole(req,res);
+    });
+    app.post('/getRandomSentence', function(req,res){
+        gameController.getRandomSentence(req,res);
+    });
+    app.post('/createSentence', function(req,res){
+        gameController.createSentence(req,res);
+    })
 };
